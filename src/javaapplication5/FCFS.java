@@ -9,12 +9,14 @@ package javaapplication5;
  *
  * @author sg
  */
+
+/////////////////////////
 public class FCFS {
    public int tracks=200;              //0 to 199
    // int head_pos=50;          //head position
      //int size = 8;       //size of the array
      //int []arr=new int[size];
-    
+
    public void FCFS(int arr[], int curr_loc, int size) 
 { 
 	int total = 0; 

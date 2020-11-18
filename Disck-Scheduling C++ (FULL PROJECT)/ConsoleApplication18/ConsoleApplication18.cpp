@@ -39,10 +39,11 @@ int main()
 	//FCFS
 	cout << "FCFS: " << endl;
 	total_distance = abs(head - requests[0]);
-	for (int i = 0; i < requests_count - 1; i++) {
+	for (int i = 0; i < requests_count - 1; i++){
 		//cout << requests[i] << " - " << requests[i+1] << " = " << abs(requests[i] - requests[i + 1]) << endl;
 		total_distance += abs(requests[i] - requests[i + 1]);
 	}
+
 	cout << "Order: " << head << " -> ";
 	for (int i = 0; i < requests_count; i++) {
 		string arrow = " -> ";
@@ -77,23 +78,41 @@ int main()
 			}
 		}
 	}
-	int bound = (requests_count - 1)*(upper);
-	int x = requests_count;
+	list<int>left;
+	list<int>right;
+	for (int i = 0; i < requests_count; i++)
+	{
+		if (requests[i] > head)
+			right.push_back(requests[i]);
+		else
+			left.push_back(requests[i]);
+	}
 	list<int> SCAN_requests;
-	SCAN_requests.push_front(head);
-	for (int i = 0; i < x; i++) {
-		int index = closest_index - i * (!upper) + i * (upper);
-		SCAN_requests.push_back(requests[index]);
-		if (index == bound ) {
-			SCAN_requests.push_back((end - 1)*upper);
-			i = 0;
-			upper = ! upper;
-			x = requests_count - closest_index;
-			if (closest_index == 0 || closest_index == requests[requests_count - 1]) {
-				break;
+	SCAN_requests.push_back (head);
+	for (int i = 0; i < 2; i++)
+	{
+		if (upper)
+		{
+			for (list <int> ::iterator i = right.begin(); i != (right.end()); i++)
+			{
+				SCAN_requests.push_back(*i);
+			}
+
+		}
+		else
+		{
+			for (auto i = left.rbegin(); i != (left.rend()); i++)
+			{
+				SCAN_requests.push_back(*i);
 			}
 		}
+		if (i == 0)
+		{
+			SCAN_requests.push_back((end - 1)*upper);
+		}
+		upper = !upper;
 	}
+	
 	
 	total_distance = 0;
 	cout << "Order: ";

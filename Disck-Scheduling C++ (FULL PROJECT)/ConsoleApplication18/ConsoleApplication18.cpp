@@ -61,23 +61,7 @@ int main()
 	//SCAN
 	cout << "Scan: " << endl;
 	sort(requests, requests + requests_count);
-	//Get closest request
-	int closest_diiference = requests[0];
-	int closest_index = 0;
-	for (int i = 1; i < requests_count; i++) {
-		if (upper) { 
-			if (abs(head - requests[i]) < abs(head - closest_diiference) && requests[i] > head) {
-				closest_diiference = requests[i];
-				closest_index = i;
-			}
-		}
-		else {
-			if (abs(head - requests[i]) < abs(head - closest_diiference) && requests[i] < head ) {
-				closest_diiference = requests[i];
-				closest_index = i;
-			}
-		}
-	}
+
 	list<int>left;
 	list<int>right;
 	for (int i = 0; i < requests_count; i++)
@@ -99,7 +83,7 @@ int main()
 			}
 
 		}
-		else
+		else 
 		{
 			for (auto i = left.rbegin(); i != (left.rend()); i++)
 			{

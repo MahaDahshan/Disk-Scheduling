@@ -89,6 +89,9 @@ int main()
 			i = 0;
 			upper = ! upper;
 			x = requests_count - closest_index;
+			if (closest_index == 0 || closest_index == requests[requests_count - 1]) {
+				break;
+			}
 		}
 	}
 	

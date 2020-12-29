@@ -56,17 +56,17 @@ int main()
 		cin >> algorithm;
 
 		switch (algorithm) {
-		case 1:
-			fcfs(requests, head, requests_count, seek_time, end, upper);
-			break;
-		case 2:
-			scan(requests, head, requests_count, seek_time, end, upper);
-			break;
-		case 3:
-			sstf(requests, head, requests_count, seek_time, end);
-			break;
-		dafault:
-			cout << "This is not a valid option, please try again";
+			case 1:
+				fcfs(requests, head, requests_count, seek_time, end, upper);
+				break;
+			case 2:
+				scan(requests, head, requests_count, seek_time, end, upper);
+				break;
+			case 3:
+				sstf(requests, head, requests_count, seek_time, end);
+				break;
+			dafault:
+				cout << "This is not a valid option, please try again";
 		}
 
 		cout << "\n\nType 1 to continue or 0 to exit: ";
@@ -79,10 +79,12 @@ int main()
 //SSTF
 void sstf(int *requests_,int head,int requests_count,int seek_time, int end) {
 	cout << "SSTF: " << endl;
+
 	int * requests = new int[requests_count];
 	for (int i = 0; i < requests_count; i++) {
 		requests[i] = requests_[i];
 	}
+
 	int*sstf_requests = new int[requests_count];
 	for (int i = 0; i < requests_count; i++) {
 		sstf_requests[i] = requests[i];
@@ -101,7 +103,6 @@ void sstf(int *requests_,int head,int requests_count,int seek_time, int end) {
 				least_distance_index = j;
 			}
 		}
-		cout << endl << endl;
 		least_distance = 99999;
 		sstf_requests[i] = requests[least_distance_index];
 		current_request = requests[least_distance_index];
@@ -129,10 +130,12 @@ void sstf(int *requests_,int head,int requests_count,int seek_time, int end) {
 //SCAN
 void scan(int *requests_, int head, int requests_count, int seek_time,int end, bool upper) {
 	cout << "Scan: " << endl;
+
 	int * requests = new int[requests_count];
 	for (int i = 0; i < requests_count; i++) {
 		requests[i] = requests_[i];
 	}
+
 	sort(requests, requests + requests_count);
 	
 	list<int>left;

@@ -1,2 +1,3 @@
 ﻿  ConsoleApplication18.cpp
-  ConsoleApplication18.vcxproj -> C:\Users\sg\Documents\NetBeansProjects\JavaApplication5\Disck-Scheduling C++ (FULL PROJECT)\Debug\ConsoleApplication18.exe
+c:\users\pc\documents\netbeansprojects\disk-scheduling\disck-scheduling c++ (full project)\consoleapplication18\consoleapplication18.cpp(68): warning C4102: 'dafault': unreferenced label
+  ConsoleApplication18.vcxproj -> C:\Users\PC\Documents\NetBeansProjects\Disk-Scheduling\Disck-Scheduling C++ (FULL PROJECT)\Debug\ConsoleApplication18.exe
